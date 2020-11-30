@@ -1,26 +1,25 @@
 #pragma once
 #include <string>
+#include "Unit.h"
 class Length
 {
 public:
-	Length(double value, std::string unit) {
+
+	Length(double value, Unit unit) {
 		this->value = value;
 		this->unit = unit;
 	}
+
 	~Length(){};
 public:
-	Length as(std::string targetUnit);
+	Length as(Unit unit);
+
 	double getValue();
-	std::string getUnit();
+	Unit getUnit();
 protected:
 private:
 	double value;
-	std::string unit;
-public:
-	static const std::string FOOT;
-	static const std::string YARD;
-	static const std::string INCH;
-
+	Unit unit;
 private:
 };
 

@@ -1,49 +1,46 @@
 #include "length.h"
-const std::string Length::FOOT = "foot";
-const std::string Length::YARD = "yard";
-const std::string Length::INCH = "inch";
 
-Length Length::as(std::string targetUnit)
+Length Length::as(Unit unit)
 {
 	Length len = *this;
-	if (this->unit == FOOT) {
-		if (targetUnit == YARD) {
-			len = Length(this->value / 3, targetUnit);
+	if (this->unit == Unit::FOOT) {
+		if (unit == Unit::YARD) {
+			len = Length(this->value / 3, unit);
 		}
-		else 
+		else
 		{
-			if (targetUnit == INCH) {
-				len = Length(this->value * 12, targetUnit);
+			if (unit == Unit::INCH) {
+				len = Length(this->value * 12, unit);
 			}
 		}
 	}
 
-	if (this->unit == YARD) {
-		if (targetUnit == INCH) {
-			len = Length(this->value * 36, targetUnit);
+	if (this->unit == Unit::YARD) {
+		if (unit == Unit::INCH) {
+			len = Length(this->value * 36, unit);
 		}
-		else if (targetUnit == FOOT){
-			len = Length(this->value * 3, targetUnit);
+		else if (unit == Unit::FOOT){
+			len = Length(this->value * 3, unit);
 		}
 	}
 
-	if (this->unit == INCH) {
-		if (targetUnit == FOOT) {
-			len = Length(this->value / 12, targetUnit);
+	if (this->unit == Unit::INCH) {
+		if (unit == Unit::FOOT) {
+			len = Length(this->value / 12, unit);
 		}
-		else if (targetUnit == YARD) {
-			len = Length(this->value / 36, targetUnit);
+		else if (unit == Unit::YARD) {
+			len = Length(this->value / 36, unit);
 		}
 	}
 
 	return len;
 }
 
-
 double Length::getValue() {
 	return this->value;
 }
 
-std::string Length::getUnit() {
+Unit Length::getUnit()
+{
 	return this->unit;
 }
