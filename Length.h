@@ -18,6 +18,9 @@ private:
 	std::string unit;
 public:
 	static const std::string FOOT;
+	static const std::string YARD;
+	static const std::string INCH;
+
 private:
 };
 

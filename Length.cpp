@@ -1,20 +1,25 @@
 #include "length.h"
 const std::string Length::FOOT = "foot";
+const std::string Length::YARD = "yard";
+const std::string Length::INCH = "inch";
 
 Length Length::as(std::string targetUnit)
 {
 	Length len = *this;
 	if (this->unit == FOOT) {
-		if (targetUnit == "yard") {
+		if (targetUnit == YARD) {
 			len = Length(this->value / 3, targetUnit);
 		}
-		else if (targetUnit == "inch") {
-			len = Length(this->value * 12, targetUnit);
+		else 
+		{
+			if (targetUnit == INCH) {
+				len = Length(this->value * 12, targetUnit);
+			}
 		}
 	}
 
-	if (this->unit == "yard") {
-		if (targetUnit == "inch") {
+	if (this->unit == YARD) {
+		if (targetUnit == INCH) {
 			len = Length(this->value * 36, targetUnit);
 		}
 		else if (targetUnit == FOOT){
@@ -22,11 +27,11 @@ Length Length::as(std::string targetUnit)
 		}
 	}
 
-	if (this->unit == "inch") {
+	if (this->unit == INCH) {
 		if (targetUnit == FOOT) {
 			len = Length(this->value / 12, targetUnit);
 		}
-		else if (targetUnit == "yard") {
+		else if (targetUnit == YARD) {
 			len = Length(this->value / 36, targetUnit);
 		}
 	}

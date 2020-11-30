@@ -27,11 +27,11 @@ TEST(LengthTest, should_2_feet_equals_2_feet){
 }
 
 TEST(LengthTest, should_1_yard_equals_1_yard){
-	Length result = Length(1, "yard");
-	result = result.as("yard");
+	Length result = Length(1, Length::YARD);
+	result = result.as(Length::YARD);
 
 	CHECK_EQUAL(1.0, result.getValue());
-	CHECK_EQUAL("yard", result.getUnit());
+	CHECK_EQUAL(Length::YARD, result.getUnit());
 }
 
 TEST(LengthTest, should_1_foot_equals_12_inches){
@@ -44,14 +44,14 @@ TEST(LengthTest, should_1_foot_equals_12_inches){
 
 TEST(LengthTest, should_3_foot_equals_1_yard){
 	Length result = Length(3, Length::FOOT);
-	result = result.as("yard");
+	result = result.as(Length::YARD);
 
 	CHECK_EQUAL(1.0, result.getValue());
-	CHECK_EQUAL("yard", result.getUnit());
+	CHECK_EQUAL(Length::YARD, result.getUnit());
 }
 
 TEST(LengthTest, should_1_yard_equals_3_feet){
-	Length result = Length(1, "yard");
+	Length result = Length(1, Length::YARD);
 	result = result.as(Length::FOOT);
 
 	CHECK_EQUAL(3.0, result.getValue());
@@ -59,7 +59,7 @@ TEST(LengthTest, should_1_yard_equals_3_feet){
 }
 
 TEST(LengthTest, should_1_yard_equals_36_inches){
-	Length result = Length(1, "yard");
+	Length result = Length(1, Length::YARD);
 	result = result.as("inch");
 
 	CHECK_EQUAL(36.0, result.getValue());
@@ -67,7 +67,7 @@ TEST(LengthTest, should_1_yard_equals_36_inches){
 }
 
 TEST(LengthTest, should_2_yards_equals_72_inches){
-	Length result = Length(2, "yard");
+	Length result = Length(2, Length::YARD);
 	result = result.as("inch");
 
 	CHECK_EQUAL(72.0, result.getValue());
@@ -84,16 +84,16 @@ TEST(LengthTest, should_12_inches_equals_1_foot){
 
 TEST(LengthTest, should_36_inches_equals_1_yard){
 	Length result = Length(36, "inch");
-	result = result.as("yard");
+	result = result.as(Length::YARD);
 
 	CHECK_EQUAL(1.0, result.getValue());
-	CHECK_EQUAL("yard", result.getUnit());
+	CHECK_EQUAL(Length::YARD, result.getUnit());
 }
 
 TEST(LengthTest, should_18_inches_equals_half_yard){
 	Length result = Length(18, "inch");
-	result = result.as("yard");
+	result = result.as(Length::YARD);
 
 	CHECK_EQUAL(0.5, result.getValue());
-	CHECK_EQUAL("yard", result.getUnit());
+	CHECK_EQUAL(Length::YARD, result.getUnit());
 }
