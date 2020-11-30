@@ -1,22 +1,25 @@
 #pragma once
 #include <string>
+#include "Unit.h"
 class Length
 {
 public:
-	Length(double val, std::string uinnt) {
-		this->value = val;
-		this->unit = uinnt;
+
+	Length(double value, Unit unit) {
+		this->value = value;
+		this->unit = unit;
 	}
+
 	~Length(){};
 public:
-	Length as(std::string u);
-	double getVal();
-	std::string getUinnt();
+	Length as(Unit unit);
+
+	double getValue();
+	Unit getUnit();
 protected:
 private:
-	double  value;
-	std::string unit;
-
+	double value;
+	Unit unit;
 private:
 };
 
