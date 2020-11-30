@@ -1,32 +1,33 @@
 #include "length.h"
+const std::string Length::FOOT = "foot";
 
-Length Length::as(std::string u)
+Length Length::as(std::string targetUnit)
 {
 	Length len = *this;
-	if (this->unit == "f") {
-		if (u == "yard") {
-			len = Length(this->value / 3, u);
+	if (this->unit == FOOT) {
+		if (targetUnit == "yard") {
+			len = Length(this->value / 3, targetUnit);
 		}
-		else if (u == "inch") {
-			len = Length(this->value * 12, u);
+		else if (targetUnit == "inch") {
+			len = Length(this->value * 12, targetUnit);
 		}
 	}
 
 	if (this->unit == "yard") {
-		if (u == "inch") {
-			len = Length(this->value * 36, u);
+		if (targetUnit == "inch") {
+			len = Length(this->value * 36, targetUnit);
 		}
-		else if (u == "f"){
-			len = Length(this->value * 3, u);
+		else if (targetUnit == FOOT){
+			len = Length(this->value * 3, targetUnit);
 		}
 	}
 
 	if (this->unit == "inch") {
-		if (u == "f") {
-			len = Length(this->value / 12, u);
+		if (targetUnit == FOOT) {
+			len = Length(this->value / 12, targetUnit);
 		}
-		else if (u == "yard") {
-			len = Length(this->value / 36, u);
+		else if (targetUnit == "yard") {
+			len = Length(this->value / 36, targetUnit);
 		}
 	}
 
@@ -34,10 +35,10 @@ Length Length::as(std::string u)
 }
 
 
-double Length::getVal() {
+double Length::getValue() {
 	return this->value;
 }
 
-std::string Length::getUinnt() {
+std::string Length::getUnit() {
 	return this->unit;
 }

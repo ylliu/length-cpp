@@ -3,20 +3,21 @@
 class Length
 {
 public:
-	Length(double val, std::string uinnt) {
-		this->value = val;
-		this->unit = uinnt;
+	Length(double value, std::string unit) {
+		this->value = value;
+		this->unit = unit;
 	}
 	~Length(){};
 public:
-	Length as(std::string u);
-	double getVal();
-	std::string getUinnt();
+	Length as(std::string targetUnit);
+	double getValue();
+	std::string getUnit();
 protected:
 private:
-	double  value;
+	double value;
 	std::string unit;
-
+public:
+	static const std::string FOOT;
 private:
 };
 
